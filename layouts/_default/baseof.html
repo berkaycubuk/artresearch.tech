@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {{ partial "head.html" . }}
+
+    {{ block "styles" . }}{{ end }}
+  </head>
+<body>
+  <div id="container">
+    {{ partial "header.html" . }}
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+  {{ partial "footer.html" . }}
+
+  {{ $mainJS := resources.Get "js/main.js" | resources.Minify }}
+  <script src="{{ $mainJS.RelPermalink }}"></script>
+
+  {{ block "scripts" . }}{{ end }}
+</body>
+</html>

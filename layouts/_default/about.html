@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div id="about-page">
+	{{ if .Params.Subtitle }}
+	<h1>{{ .Params.Subtitle }}</h1>
+	{{ end }}
+	<div class="about-page-flex">
+		<div class="about">
+			{{ .Content }}
+		</div>
+		<div class="image">
+			<img src="/about.jpg" />
+		</div>
+	</div>
+</div>
+{{ end }}

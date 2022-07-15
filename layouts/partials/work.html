@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="services">
+	{{ range .ByParam "weight" }}
+	<!--{{ .Params.layout }}-->
+	{{/*
+     <article class="work" {{ if .Params.width }} style="width: {{ .Params.width }}%" {{ end }}>
+		<a href="{{ .RelPermalink }}">
+			<div class="images">
+				{{ with .Resources.Match "*_main*" }}
+   			{{ range sort . }}
+			  {{ $image := . }}
+			  {{ if .Params.width }}
+			  {{ $image := $image.Resize "900x400" }}
+			  {{ end }}
+				<img src="{{ $image.RelPermalink }}" />
+				{{ end }}
+				{{ end }}
+			</div>
+			<footer>
+				<div>
+					<h1>{{ .Title }}</h1>
+				</div>
+				<span class="date"><h1>{{ dateFormat "2006" .Params.date }}</h1></span>
+			</footer>
+		</a>
+	</article>
+	*/}}
+	<a href="{{ .RelPermalink }}" class="service" >
+		<div class="service-content">
+			<div class="service-inner">
+				<h3 class="service-title">{{ .Title }}</h3>
+				<span class="service-subtitle">{{ if (isset .Params "date") }}{{ dateFormat "2006" .Params.date }}{{ end }}</span>
+			</div>
+		</div>
+		{{ with .Resources.Match "*_main*" }}
+		{{ range sort . }}
+		{{ $image := . }}
+		{{ if .Params.width }}
+		{{ $image := $image.Resize "900x400" }}
+		{{ end }}
+		<img class="service-image" src="{{ $image.RelPermalink }}" />
+		{{ end }}
+		{{ end }}
+	</a>
+	{{ end }}
+  </div>
+</div>

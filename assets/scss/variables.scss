@@ -1,0 +1,43 @@
+$phone-width: 600px;
+$phone: "(max-width: #{$phone-width})";
+$not-phone: "(min-width: #{$phone-width})";
+$extra-wide: "(max-width: 1000px)";
+
+/* Sizes */
+$screen-sm: 480px;
+$screen-md: 768px;
+$screen-lg: 1024px;
+$screen-xl: 1200px;
+
+$screen-sm-bp: "(max-width: #{$screen-sm})";
+$screen-md-bp: "(max-width: #{$screen-md})";
+$screen-lg-bp: "(max-width: #{$screen-lg})";
+$screen-xl-bp: "(max-width: #{$screen-xl})";
+/* End Sizes */
+
+//$grid-padding: 5px;
+//$vert-margin: 15px;
+//$page-width: 900px;
+$grid-padding: 10px;
+$vert-margin: 30px;
+$page-width: 900px;
+$max-width: 1200px;
+
+/* Colors */
+$color-primary: #CCFF00;
+$color-primary--dark: #bdeb02;
+
+// Light mode
+$color-bg--light: whitesmoke;
+$color-text--light: #555;
+$color-text-hover--light: #222;
+$color-input-bg--light: #ffffff;
+
+// Dark mode
+$color-bg--dark: #222;
+$color-text--dark: #ddd;
+$color-text-hover--dark: #ababab;
+$color-input-bg--dark: #eee;
+/* End Colors */
+
+$transition-ld-time: .4s;

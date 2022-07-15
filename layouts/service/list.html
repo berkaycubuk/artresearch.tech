@@ -1,0 +1,27 @@
+{{ define "main" }}
+
+<div class="container">
+	{{ if (isset .Params "subtitle") }}
+	<div class="services-header">
+		<h1 class="services-header-subtitle">{{ .Params.subtitle }}</h1>
+	</div>
+	{{ end }}
+  <div class="services">
+		{{ range (where .Site.RegularPages "Type" "service") }}
+		<a href="{{ .RelPermalink }}" class="service" >
+			<div class="service-content">
+				<div class="service-inner">
+					<h3 class="service-title">{{ .Title }}</h3>
+					<span class="service-subtitle">{{ if (isset .Params "subtitle") }}{{ .Params.subtitle }}{{ end }}</span>
+				</div>
+			</div>
+			{{/* Only picks the images ending with _main.jpg */}}
+			{{ range first 1 (.Resources.Match "*_main.jpg") }}
+			<img class="service-image" src="{{ .RelPermalink }}" />
+			{{ end }}
+		</a>
+		{{ end }}
+  </div>
+</div>
+
+{{ end }}

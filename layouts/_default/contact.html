@@ -1,0 +1,132 @@
+{{ define "styles" }}
+    <link rel="stylesheet" type="text/css" href="/css/leaflet.css" />
+{{ end }}
+
+{{ define "main" }}
+<div class="contact-page">
+    <h1 class="contact-page-title">{{ .Title }}</h1>
+    {{ if .Params.subtitle }}
+        <h2 class="contact-page-subtitle">{{ .Params.subtitle }}</h2>
+    {{ end }}
+
+    <div id="map" class="contact-page-map"></div>
+
+    <div class="contact-page-form-and-info">
+        {{ partial "contact-form.html" . }}
+
+        <div class="contact-page-information">
+        {{ if .Site.Params.contact }}
+            {{ if .Site.Params.contact.email }}
+            <div>
+                <span>E-mail:</span>
+                <a href="mailto:{{ .Site.Params.contact.email }}">{{ .Site.Params.contact.email }}</a>
+            </div>
+            {{ end }}
+            {{ if .Site.Params.contact.instagram }}
+            <div>
+                <span>Instagram:</span>
+                <a href="https://www.instagram.com/{{ .Site.Params.contact.instagram }}">@{{ .Site.Params.contact.instagram }}</a>
+            </div>
+            {{ end }}
+            {{ if .Site.Params.contact.address }}
+            <div>
+                <span>Address:</span>
+                <a href="{{ .Site.Params.contact.addressGoogleMaps }}">{{ .Site.Params.contact.address }}</a>
+            </div>
+            {{ end }}
+        {{ end }}
+        <div class="contact-qr">
+            <h3 class="contact-qr-title">Go<br/>Mobile</h3>
+            <img class="contact-qr-img" src="/qrcode.svg" />
+        </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+{{ define "scripts" }}
+    <script src="/js/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([0, 0], 1);
+        L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        var mapMarkerIcon = L.icon({
+            iconUrl: '/img/map-pin.svg',
+            //shadowUrl: 'leaf-shadow.png',
+
+            iconSize:     [24, 24], // size of the icon
+            //shadowSize:   [50, 64], // size of the shadow
+            iconAnchor:   [12, 24], // point of the icon which will correspond to marker's location
+            //shadowAnchor: [4, 62],  // the same for the shadow
+            popupAnchor:  [0, -26] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var mapMarkerIconBlack = L.icon({
+            iconUrl: '/img/map-pin-black.svg',
+            //shadowUrl: 'leaf-shadow.png',
+
+            iconSize:     [24, 24], // size of the icon
+            //shadowSize:   [50, 64], // size of the shadow
+            iconAnchor:   [12, 24], // point of the icon which will correspond to marker's location
+            //shadowAnchor: [4, 62],  // the same for the shadow
+            popupAnchor:  [0, -26] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var markers = [
+            {{ range (where .Site.RegularPages "Type" "work") }}
+                {
+                    marker: L.marker([{{ .Params.locationMarker.lat }}, {{ .Params.locationMarker.lon }}], {icon: mapMarkerIconBlack}),
+                    {{ if .Params.locationMarker.popupText }}
+                        popup: L.popup().setContent('{{ .Params.locationMarker.popupText }}'),
+                    {{ else }}
+                        popup: L.popup().setContent('<a href="{{ .RelPermalink }}">{{ .Title }}{{ if (isset .Params "date") }} - {{ dateFormat "2006" .Params.date }}{{ end }}</a>'),
+                    {{ end }}
+                },
+            {{ end }}
+        ];
+
+        for (let i = 0; i < markers.length; i++) {
+            markers[i].marker.addTo(map);
+            markers[i].marker.bindPopup(markers[i].popup);
+        }
+
+        /*
+        var betweenTheCloudsMarker = L.marker([51.23, 6.77], { icon: mapMarkerIconBlack }).addTo(map);
+        var betweenTheCloudsPopup = L.popup()
+            .setContent('<p>Between The Clouds<br/><a href="/betweentheclouds/">Details</a></p>');
+        betweenTheCloudsMarker.bindPopup(betweenTheCloudsPopup);
+
+        var newSpringMarker = L.marker([51.50, -0.139], { icon: mapMarkerIconBlack }).addTo(map);
+
+        var motherMarker = L.marker([31.23, 121.48], { icon: mapMarkerIconBlack }).addTo(map);
+
+        var biteMarker = L.marker([28.42, -81.47], { icon: mapMarkerIconBlack }).addTo(map);
+
+        var overheatedMarker = L.marker([22.28, 114.157], { icon: mapMarkerIconBlack }).addTo(map);
+
+        var selfridgesMarker = L.marker([51.51, -0.152], { icon: mapMarkerIconBlack }).addTo(map);
+
+        var waveParticleMarker = L.marker([40.72, -73.95], { icon: mapMarkerIconBlack }).addTo(map);
+
+        var fogPaintingMarker = L.marker([22.28, 114.157], { icon: mapMarkerIconBlack }).addTo(map);
+
+        var silentFallMarker = L.marker([26.33, 50.12], { icon: mapMarkerIconBlack }).addTo(map);
+
+        var infinityMarker = L.marker([50.36, -4.74], { icon: mapMarkerIconBlack }).addTo(map);
+
+        var workshopMarker = L.marker([51.52, -0.141], { icon: mapMarkerIcon }).addTo(map);
+        var workshopPopup = L.popup()
+            .setContent('<p>Workshop</p>');
+        workshopMarker.bindPopup(workshopPopup);
+        */
+        var workshopMarker = L.marker([51.52, -0.141], { icon: mapMarkerIcon }).addTo(map);
+        var workshopPopup = L.popup()
+            .setContent('<p>Workshop</p>');
+        workshopMarker.bindPopup(workshopPopup);
+        var pos = map.latLngToLayerPoint(workshopMarker.getLatLng()).round();
+        workshopMarker.setZIndexOffset(100 - pos.y);
+    </script>
+{{ end }}

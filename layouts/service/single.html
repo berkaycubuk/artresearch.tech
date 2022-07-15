@@ -1,0 +1,47 @@
+{{ define "styles" }}
+	<link rel="stylesheet" type="text/css" href="/css/splide.min.css" />
+{{ end }}
+
+{{ define "main" }}
+<div class="service-single">
+	<h1 class="service-single-title">{{ .Title }}</h1>
+	{{ if .Params.subtitle }}
+		<h2 class="service-single-subtitle">{{ .Params.subtitle }}</h2>
+	{{ end }}
+
+	<div class="splide service-single-slider">
+		<div class="splide__track">
+			<ul class="splide__list">
+				{{ range .Resources.ByType "image" }}
+					<li class="splide__slide">
+						<img src="{{ .RelPermalink }}" />
+					</li>
+				{{ end }}
+			</ul>
+		</div>
+	</div>
+
+	{{ .Content }}
+</div>
+{{ end }}
+
+{{ define "scripts" }}
+	<script src="/js/splide.min.js"></script>
+	<script>
+		new Splide('.splide', {
+			type: 'loop',
+			autoplay: true,
+			interval: 2000,
+			perPage: 3,
+			gap: '1em',
+			breakpoints: {
+				600: {
+					perPage: 2,
+				},
+				400: {
+					perPage: 1,
+				}
+			}
+		}).mount();
+	</script>
+{{ end }}
