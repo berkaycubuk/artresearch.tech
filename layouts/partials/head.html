@@ -9,6 +9,3 @@
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400&display=swap" rel="stylesheet"> 
 {{ $styles := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" media="screen">
-
-{{/* disable indexing for search engines (due to demo purposes) */}}
-<meta name="robots" content="noindex, nofollow" />
