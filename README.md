@@ -1,2 +1,0 @@
-# artresearch.tech
-Portfolio site
