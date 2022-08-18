@@ -3,6 +3,9 @@ if (localStorage.getItem("ld") == "dark") {
 }
 
 window.onload = function() {
+    var Scrollbar = window.Scrollbar;
+    Scrollbar.init(document.querySelector('#body'));
+
     let ldInput = document.getElementById('ld-input');
 
     // check if localStorage set for ld

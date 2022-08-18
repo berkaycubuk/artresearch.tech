@@ -56,17 +56,16 @@
         </section>
         {{ end }}
         {{ if eq .Params.sectionType "work" }}
-            <div id="home" class="strip bg-cover bg-position-top bg-overlay" style="background-image: url('{{ .Params.background | relURL }}');">
-              <div class="container pt-17 pb-17">
-                <div class="row">
-                  <div class="col-12 col-md-6 offset-md-6">
-                    <h2 class="text-primary text-capitalize">{{ .Title }}</h2>
+        <section class="home-work" style="background-image: url('{{ .Params.background | relURL}}');">
+            <div class="container">
+                <div class="home-work-content">
+                    <h2>{{ .Title }}</h2>
                     <p>{{ .Content }}</p>
                     <a class="button" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
-                  </div>
                 </div>
-              </div>
             </div>
+            <div class="home-work-filter" style="background-color: {{ .Params.filterColor }};opacity: {{ .Params.filterOpacity }};"></div>
+        </section>
         {{ end }}
     {{ end }}
 

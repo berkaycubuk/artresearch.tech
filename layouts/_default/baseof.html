@@ -5,13 +5,14 @@
 
     {{ block "styles" . }}{{ end }}
   </head>
-<body>
+<body id="body">
     {{ partial "header.html" . }}
-    <main>
+    <main class="main">
       {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer.html" . }}
 
+    <script src="/js/smooth-scrollbar.min.js"></script>
     {{ $mainJS := resources.Get "js/main.js" | resources.Minify }}
     <script src="{{ $mainJS.RelPermalink }}"></script>
 

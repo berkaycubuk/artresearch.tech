@@ -9,6 +9,7 @@
 @import "homepage/welcome.scss";
 @import "homepage/about.scss";
 @import "homepage/services.scss";
+@import "homepage/work.scss";
 
 * {
   text-decoration: unset;
@@ -32,8 +33,18 @@ body {
   -webkit-font-smoothing: antialiased;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  overflow-y: scroll;
+  height: 100vh;
+  //overflow-y: scroll;
+}
+
+.scroll-content {
+    height: 100%;
+    display: flex !important;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
 }
 
 .page-width {
@@ -52,7 +63,7 @@ body {
   margin-top: 2rem;
 }
 
-body > footer {
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
