@@ -8,7 +8,7 @@
         align-items: center;
 
         h2 {
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: bold;
             text-align: center;
         }
@@ -57,6 +57,12 @@
             position: relative;
             z-index: 2;
             color: #fff;
+
+            h3 {
+                font-size: 1.8rem;
+                font-weight: bold;
+                text-align: center;
+            }
         }
 
         &-filter {
