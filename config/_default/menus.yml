@@ -1,7 +1,7 @@
 main:
   - identifier: work
     name: Work
-    url: /
+    url: /work
     weight: 1
   - identifier: about
     name: About

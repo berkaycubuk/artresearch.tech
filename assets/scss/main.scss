@@ -5,6 +5,10 @@
 @import "contact.scss";
 @import "ld.scss";
 
+// homepage
+@import "homepage/welcome.scss";
+@import "homepage/about.scss";
+
 * {
   text-decoration: unset;
   color: unset;

@@ -1,0 +1,38 @@
+.home-about {
+    height: 100vh;
+
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &-content {
+        flex: 0;
+
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+        }
+
+        a.button {
+            display: inline-block;
+            cursor: pointer;
+            padding: 0.4em 2em;
+            margin: 1em 0;
+            color: $color-text--light;
+            background-color: $color-primary;
+            border: 1px solid $color-text--light;
+            border-radius: 30px;
+            outline: none;
+            font-size: 1.8rem;
+            transition: all .5s;
+
+            &:hover {
+              background-color: $color-primary--dark;
+            }
+        }
+    }
+}

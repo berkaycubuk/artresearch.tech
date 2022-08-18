@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div id="work">
+<div id="work" class="container">
 
   {{ with .Params.video }}
   {{ $id := replaceRE "https?://([a-z\\./]+)" "" . }}

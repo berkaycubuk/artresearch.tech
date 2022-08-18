@@ -17,3 +17,22 @@
     max-width: 94%;
   }
 }
+
+.container {
+  position: relative;
+  max-width: $screen-lg;
+  width: 100%;
+  margin: 0 auto;
+
+  @media #{$screen-lg-bp} {
+    max-width: $screen-md;
+  }
+
+  @media #{$screen-md-bp} {
+    max-width: $screen-sm;
+  }
+
+  @media #{$screen-sm-bp} {
+    max-width: 94%;
+  }
+}
