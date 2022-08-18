@@ -16,12 +16,14 @@
         </section>
         {{ end }}
         {{ if eq .Params.sectionType "about" }}
-        <section class="home-about">
+        <section class="home-about" style="background-image: url('{{ .Params.background | relURL}}');">
             <div class="container">
                 <div class="home-about-content">
                     <h2>{{ .Title }}</h2>
+                    <p>{{ .Content }}</p>
                 </div>
             </div>
+            <div class="home-about-filter" style="background-color: {{ .Params.filterColor }};opacity: {{ .Params.filterOpacity }};"></div>
         </section>
         {{ end }}
         {{ if eq .Params.sectionType "services" }}

@@ -1,5 +1,8 @@
 .home-about {
-    height: 100vh;
+    position: relative;
+    padding: 200px 0;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     .container {
         height: 100%;
@@ -7,32 +10,27 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        z-index: 2;
     }
 
     &-content {
         flex: 0;
 
-        h1 {
-            font-size: 4rem;
+        h2 {
+            font-size: 2rem;
             font-weight: bold;
         }
 
-        a.button {
-            display: inline-block;
-            cursor: pointer;
-            padding: 0.4em 2em;
-            margin: 1em 0;
-            color: $color-text--light;
-            background-color: $color-primary;
-            border: 1px solid $color-text--light;
-            border-radius: 30px;
-            outline: none;
-            font-size: 1.8rem;
-            transition: all .5s;
-
-            &:hover {
-              background-color: $color-primary--dark;
-            }
+        p {
+            font-size: 1rem;
         }
+    }
+
+    &-filter {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
 }

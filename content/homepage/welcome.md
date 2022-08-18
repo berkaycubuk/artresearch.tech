@@ -4,7 +4,7 @@ weight: 1
 button: "Contact"
 buttonLink: "/contact"
 background: "img/welcome-bg.jpg"
-sectionType: welcome
 filterColor: "#222"
 filterOpacity: "0.8"
+sectionType: welcome
 ---

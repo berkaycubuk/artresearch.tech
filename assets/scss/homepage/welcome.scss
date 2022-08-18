@@ -1,6 +1,8 @@
 .home-welcome {
     height: calc(100vh - 105px);
     position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     .container {
         height: 100%;
