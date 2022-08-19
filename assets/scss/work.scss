@@ -25,6 +25,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.8em;
+    margin-top: 2em;
 }
 
 .service-button {
@@ -41,6 +42,18 @@
     transition: all .5s;
 
     &:hover {
+        color: $color-text--light;
+    }
+}
+
+body.dark-mode {
+    .service-button {
+        color: $color-text--dark;
+        border-color: $color-text--dark;
+
+        &:hover {
+            color: $color-text--dark;
+        }
     }
 }
 
