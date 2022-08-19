@@ -18,6 +18,9 @@ credit:
 layout: project
 video: https://youtube.com/shorts/ONLuAhkr1dc
 type: work
+headlineText: ""
+leftText: ""
+rightText: ""
 ---
 
 BITE attractor represents AMGENS latest cancer fighting technology. Standing tall at 4m high in the center of the American Society of Hematology (ASH) Annual Exposition this g

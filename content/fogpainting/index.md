@@ -23,6 +23,9 @@ credit:
 layout: project
 video:
 type: work
+headlineText: ""
+leftText: ""
+rightText: ""
 ---
 
 

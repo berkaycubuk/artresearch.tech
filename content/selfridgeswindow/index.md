@@ -16,6 +16,9 @@ credit:
 layout: project
 video: https://youtube.com/j28GlOWmGI4
 type: work
+headlineText: ""
+leftText: ""
+rightText: ""
 ---
 
 Inteligent motor controllers

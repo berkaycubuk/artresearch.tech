@@ -20,6 +20,9 @@ services:
     - title: INSTALLATION'
 video: https://www.youtube.com/embed/X--vgjXOK7w
 type: work
+headlineText: ""
+leftText: ""
+rightText: ""
 ---
 
 Working with [Charlie Hope](https://charliehope.net) and [Will Gallia](https://llia.io) we created an immersive experience with scented bubbles. 

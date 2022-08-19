@@ -14,34 +14,55 @@
   </div>
   {{ end }}
 
-  <div>
-    <h1>Client: {{ .Params.Client }}</h1>
+  <div class="work-header">
+    <div class="work-header-left">
+        <h1>{{ .Title }}</h1>
+        <div class="work-header-services">
+        {{ if .Params.Services }}
+          {{ range .Params.Services }}
+            <a class="service-button" href="{{ .url }}">{{ .title }}</a>
+          {{ end }}
+        {{ end }}
+        </div>
+    </div>
+    <div class="work-header-right">
+        <div>
+            <h1>{{ .Params.Client }}</h1>
+            {{ if .Params.Location }}
+            <h2>{{ .Params.Location }}</h2>
+            {{ end }}
+        </div>
+    </div>
+  </div>
 
-    {{ if .Params.Location }}
-    <h2>Location: {{ .Params.Location }}</h2>
-    {{ end }}
-    {{ if .Params.Services }}
-    <h3>Services: 
-      {{ range .Params.Services }}
-        <a href="{{ .url }}">{{ .title }}</a>
+  <div class="work-image">
+      {{ range first 1 (.Resources.Match "*{png,jpg}") }}
+        <img src="{{ .RelPermalink }}" alt="" />
       {{ end }}
+  </div>
+
+  <h2 class="work-h2">
+      {{ .Params.headlineText }}
+  </h2>
+
+  <div class="work-image">
+      {{ range first 1 (after 1 (.Resources.Match "*{png,jpg}")) }}
+        <img src="{{ .RelPermalink }}" alt="" />
+      {{ end }}
+  </div>
+
+  <div class="work-text-grid">
+    <h3>
+        {{ .Params.leftText }}
     </h3>
-    {{ end }}
+    <p>
+        {{ .Params.rightText }}
+    </p>
   </div>
 
-  <div class="content">
-  {{ .Content }}
-  </div>
-
-  {{ range .Resources.Match "*{png,jpg}" }}
-  {{ $resource := . }}
-  {{ if strings.HasSuffix $resource.Name ".gif"  }}
-  <img src="{{ $resource.RelPermalink }}" alt="" />
-  {{ else if not (in $resource.Name "_main") }}
-  {{ $image := $resource.Fit "900x900" }}
-  <img src="{{ $image.RelPermalink }}" alt="" />
-  {{ end }}
-  {{ end }}
+    <div class="content">
+        {{ .Content }}
+    </div>
 
 </div>
 {{ end }}

@@ -10,6 +10,9 @@ client: 'Elmgreen and Dragset'
 credit:
 layout: project
 type: work
+headlineText: ""
+leftText: ""
+rightText: ""
 ---
 
 Overheated transformed a third-floor gallery in Hong Kong into an abandoned, underground boiler room. Steam periodically hissed out from between the joints as visitors are invited to navigate around the room and interact with the industrial pipework.

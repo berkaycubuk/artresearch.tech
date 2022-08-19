@@ -10,6 +10,9 @@ client: 'Studio SWINE'
 credit:
 layout: project
 type: work
+headlineText: ""
+leftText: ""
+rightText: ""
 ---
 
 *Plasma*. An immersive installation comprising of 15 hand blown glass tubes used 8000v power supplies hidden behind the wall. Each sculpture was wired with special high voltage cable and insulators.

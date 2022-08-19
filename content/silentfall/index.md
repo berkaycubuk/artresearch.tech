@@ -20,6 +20,9 @@ services:
 credit: 
 layout: project
 type: work
+headlineText: ""
+leftText: ""
+rightText: ""
 ---
 
 A unique experience featuring a huge stream of fog-filled bubbles cascading down from an 8 meters. The artwork represents the flow of billions of bubbles creating the roaring white water of a natural waterfall.

@@ -19,6 +19,9 @@ services:
 credit: Alessandra Kila/Christoph Bolten/Superblue
 layout: project
 type: work
+headlineText: ""
+leftText: ""
+rightText: ""
 ---
 
 Standing 8m high and weighing 20 tonnes, an immersive installation that pays homage to the cyanobacteria, one of the world's smallest living beings. The sculpture is a monument to their vital creation, which continues to provide the oxygen in every breath we take.
