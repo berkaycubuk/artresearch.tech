@@ -37,7 +37,7 @@
 
   <div class="work-image">
       {{ range first 1 (.Resources.Match "*{png,jpg}") }}
-        <img src="{{ .RelPermalink }}" alt="" />
+        <img src="{{ .RelPermalink }}" alt="" loading="lazy" />
       {{ end }}
   </div>
 
@@ -47,7 +47,7 @@
 
   <div class="work-image">
       {{ range first 1 (after 1 (.Resources.Match "*{png,jpg}")) }}
-        <img src="{{ .RelPermalink }}" alt="" />
+        <img src="{{ .RelPermalink }}" alt="" loading="lazy" />
       {{ end }}
   </div>
 
