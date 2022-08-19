@@ -4,7 +4,9 @@ if (localStorage.getItem("ld") == "dark") {
 
 window.onload = function() {
     var Scrollbar = window.Scrollbar;
-    Scrollbar.init(document.querySelector('#body'));
+    Scrollbar.init(document.querySelector('#body'), {
+        damping: 0.04,
+    });
 
     let ldInput = document.getElementById('ld-input');
 
