@@ -4,7 +4,13 @@
 <meta name="referrer" content="no-referrer-when-downgrade">
 
 <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
-<meta name="description" content="{{ .Site.Params.Description }}">
+<meta name="description" content="{{ .Site.Params.Meta.Description }}">
+<link rel="canonical" href="{{ .Permalink }}" />
+
+<meta property="og:title" content="{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}" />
+<meta property="og:description" content="{{ .Site.Params.Meta.Description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
 
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400&display=swap" rel="stylesheet"> 
 {{ $styles := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
